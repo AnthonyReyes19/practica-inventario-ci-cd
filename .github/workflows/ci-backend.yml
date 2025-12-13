@@ -1,0 +1,35 @@
+name: CI Backend
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Node LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: Instalar dependencias del backend
+        run: |
+          cd backend
+          npm install
+
+      - name: Fix Jest permissions
+        run: |
+          cd backend
+          chmod +x node_modules/.bin/jest
+
+      - name: Ejecutar pruebas del backend
+        run: |
+          cd backend
+          npm test
