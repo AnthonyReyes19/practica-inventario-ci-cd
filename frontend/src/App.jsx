@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Inventario Web (Demo)</h1>
+      <h1>Inventario Web (CI/CD Activo)</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>SKU: </label>
