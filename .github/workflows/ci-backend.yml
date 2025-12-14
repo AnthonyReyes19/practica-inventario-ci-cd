@@ -24,6 +24,11 @@ jobs:
           cd backend
           npm install
 
+      - name: Auditoría de seguridad (npm audit)
+        run: |
+          cd backend
+          npm audit --audit-level=high || true
+
       - name: Fix Jest permissions
         run: |
           cd backend
