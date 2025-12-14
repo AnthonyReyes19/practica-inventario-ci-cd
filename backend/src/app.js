@@ -26,4 +26,12 @@ app.post('/api/productos', (req, res) => {
     }
 });
 
+// Actividad 1: Ruta de versión
+app.get('/api/version', (req, res) => {
+    res.json({
+        version: '1.0.0',
+        name: 'Inventario API',
+        environment: process.env.NODE_ENV || 'development'
+    });
+});
 module.exports = app;
